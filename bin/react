@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+'use strict';
+
+var commander = require('commander');
+var cli = require('../');
+
+commander
+  .version(require('../package.json').version)
+  .usage('[source file]')
+  .option('-p, --props [props]', 'Props to pass into the component')
+  .parse(process.argv);
+
+if (commander.args[0]) {
+    var html = cli.render(commander.args[0], commander.props);
+    console.log(html);
+} else {
+  commander.help();
+}
