@@ -11,8 +11,8 @@ commander
   .parse(process.argv);
 
 if (commander.args[0]) {
-    var html = cli.render(commander.args[0], commander.props);
-    console.log(html);
+  var html = cli.render(commander.args[0], commander.props);
+  console.log(html);
 } else {
   commander.help();
 }
