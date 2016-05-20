@@ -9,11 +9,13 @@ commander
   .usage('[source file]')
   .option('-p, --props [props]', 'Props to pass into the component')
   .option('-b, --base64 [base64]', 'Props have been passed as a base64 string')
+  .option('--property [property]', 'Access the component through a property exported by the source file')
   .parse(process.argv);
 
 if (commander.args[0]) {
   var html = cli.render(commander.args[0], commander.props, {
-    isBase64: commander.base64
+    isBase64: commander.base64,
+    property: commander.property
   });
   console.log(html);
 } else {
