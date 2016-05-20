@@ -8,10 +8,13 @@ commander
   .version(require('../package.json').version)
   .usage('[source file]')
   .option('-p, --props [props]', 'Props to pass into the component')
+  .option('-b, --base64 [base64]', 'Props have been passed as a base64 string')
   .parse(process.argv);
 
 if (commander.args[0]) {
-  var html = cli.render(commander.args[0], commander.props);
+  var html = cli.render(commander.args[0], commander.props, {
+    isBase64: commander.base64
+  });
   console.log(html);
 } else {
   commander.help();
