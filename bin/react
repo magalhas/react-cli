@@ -8,7 +8,7 @@ commander
   .version(require('../package.json').version)
   .usage('[source file]')
   .option('-p, --props [props]', 'Props to pass into the component')
-  .option('-b64, --base-64', 'Props have been passed as a base64 string')
+  .option('-b64, --base64', 'Props have been passed as a base64 string')
   .parse(process.argv);
 
 if (commander.args[0]) {
